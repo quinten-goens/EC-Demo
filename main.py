@@ -6,7 +6,7 @@ from pages import home
 from pages import airport_authority,general_public, network_manager, about
 from random import randint
 
-st.set_page_config(page_title = "Analytics Dashboard", page_icon = "🌐", layout = "wide")
+st.set_page_config(page_title = "Analytics Dashboard", page_icon = "🌐", layout = "wide", theme='light')
 
 c4_header, c1_header, c3_header= st.columns((1,1,1))
 st.sidebar.image("resources/header.png",use_column_width=True)
