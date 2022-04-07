@@ -2,6 +2,7 @@ import streamlit as st
 import lorem
 import pandas as pd
 import numpy as np
+import plotly.express as px
 
 def app():
     st.markdown("<h1 style='text-align: left; color: black;'>Airport Authority Dashboard</h1>", unsafe_allow_html=True)
@@ -33,6 +34,17 @@ def app():
         'CHANGE_AVG_ADDITIONAL_ASMA_TIME':'Pct. change in avg. additional ASMA time',
         }, axis=1, inplace=True)
         return df
+
+    APT_NAME = 'Brussels'
+    df_tmp = df[df['APT_NAME'] == APT_NAME]
+    df_tmp = df_tmp.groupby('YEAR').sum()['FLT_ASMA_UNIMP_2'].reset_index()
+
+    df_tmp = change_column_names(df_tmp)
+
+    fig1 = px.line(df_tmp, x='Year', y='IFR flights with unimpeded reference time', title='Total IFR flights with unimpeded reference time for ' + APT_NAME)
+    fig1.layout.yaxis=dict(title='Yearly total IFR flights with unimpeded reference time')
+    
+    st.plotly_chart(fig1)
     
 
 
