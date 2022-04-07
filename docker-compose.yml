@@ -1,0 +1,11 @@
+version: "2"
+services:
+  streamlit:
+    container_name: streamlit_template_container
+    build: .
+    command: "streamlit run main.py"
+    ports:
+      - "8083:8501"
+    volumes: 
+      - .:/app/.
+      - ./resources/.streamlit/:/root/.streamlit/
