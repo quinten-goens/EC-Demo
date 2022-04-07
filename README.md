@@ -1,2 +1,2 @@
-# EC-Demo
-A demonstration project for EC.
+# EC Demonstration
+A demonstration project for EC showing a variety of graphs for various stakeholders.
