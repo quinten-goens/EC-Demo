@@ -8,4 +8,3 @@ services:
       - "8083:8501"
     volumes: 
       - .:/app/.
-      - ./resources/.streamlit/:/root/.streamlit/
