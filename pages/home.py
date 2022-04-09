@@ -6,8 +6,7 @@ def app():
     st.markdown("<h1 style='text-align: left; color: black;'>Home</h1>", unsafe_allow_html=True)
     st.markdown("""
 Welcome to the Home page of the European Aviation Analytics Dashboard. This webapplication is developed 
-by <b>Quinten Goens</b>. It is a demo of a European Aviation Analytics dashboard designed for EUROCONTROL in view of the application 
-process for the position of Performance Data Analyst.""",unsafe_allow_html=True)
+by <b>Quinten Goens</b>.""",unsafe_allow_html=True)
  
 
     df = pd.read_feather('resources/ASMA_Additional_Time.feather')
@@ -40,7 +39,7 @@ process for the position of Performance Data Analyst.""",unsafe_allow_html=True)
     col3.metric("Avg. addit. ASMA time 2021 (median)", millify(ASMA_ADD_2021,precision=2), delta=round(((ASMA_ADD_2021-ASMA_ADD_2020)/ASMA_ADD_2020)*100,2), delta_color="normal")
 
     col4.markdown("""   
-On this page, the HOME page, you can view some metrics and a map. More in depth visualizations can be found in the various pages of the application: 
+On this page, the HOME page, you can view some general metrics for the whole of Europe. More in depth metrics and visualizations can be found in the various pages of the application: 
 * **ER DIAGRAM** - Entities and Relationships Diagram (Question 1).
 * **QUERIES & VIEWS** - The various requested views and queries (Question 2).
 * **AIRPORT AUTHORITY** - A dynamic dashboard including data visualizations for an airport authority (Question 3).

@@ -6,10 +6,18 @@ def app():
     # Use the full page instead of a narrow central column
     st.markdown("<h1 style='text-align: left; color: black;'>About</h1>", unsafe_allow_html=True)
     st.markdown("""
-### Future releases
+### Data sources
+* [ASMA Additional Time Dataset by ANS Performance, provided by the Performance Review Unit (PRU) from EUROCONTROL](https://ansperformance.eu/download/xls/ASMA_Additional_Time.xlsx)
+* [European Daily COVID-19 Case Counts by European Centre for Disease Control](https://opendata.ecdc.europa.eu/covid19/nationalcasedeath_eueea_daily_ei/csv/data.csv)
+""")
+    st.markdown("""
+### Future releases and improvements
 * Improve loading times further.
-* Add automatic data fetching from the EUROCONTROL PRU website or implement an API for more granular data. 
-* Add visualizations displaying the impact of the Ukraine crisis on European aviation to the general public dashboard.""")
+* Add automatic data fetching from the EUROCONTROL PRU website or implement an API for more granular data to provide daily up to date data. 
+* Add visualizations displaying the impact of the Ukraine crisis on European aviation to the general public dashboard (once data is available).
+* Add more visualizations based on provided feedback by the PRU.
+* Port the application to a more versatile and scalable cloud platform (e.g. [AWS](https://aws.amazon.com/), [Google Cloud](https://cloud.google.com/), [Azure](https://azure.microsoft.com/en-us/), etc.)
+* Create a more robust and flexible user interface by switching to a more function rich dashboarding platform such as e.g., [Dash Plotly](https://plotly.com/dash/) or [Panel](https://panel.holoviz.org/).""")
     st.markdown("""
     ### Technical tools
     Here's a (non-exhaustive) list of the tools used to develop this dashboard: """)
@@ -17,7 +25,7 @@ def app():
     col1, col2,col2_ = st.columns((1,3,1))
     col1.image('resources/python.png', width=150)
     col2.markdown("""
-### Python v3.10.3
+### Python
 Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small- and large-scale projects.
 """)
     
@@ -63,5 +71,11 @@ Docker is a platform for developers and sysadmins to build, ship, and run softwa
 
 The application is fully containerized and is hosted by Streamlit.io, but could as easily be hosted on Azure, AWS, Google Cloud, or any other cloud provider because of the containerization.""")
 
-    if st.button("Balloons"):
+    st.markdown("""
+    ### The developer
+    The developer of this platform is [Quinten Goens](https://www.linkedin.com/in/quinten-goens-741457144/). A Physicist and Astronomer who gained affinity and skills in Data Analytics / Science, Data Engineering and Cloud Architecture throughout his studies and follow up career as a Data Analyst / Data Engineer. Quinten has a particular passion for Dashboard development and Data Visualization and Interpretation. During his free time he can be found in the indoor climbing halls around Brussels with friends or learning new data / cloud skills at home.   
+    """)
+
+    if st.button("Hire me"):
         st.balloons()
+        st.markdown("""Get in touch via: QGoens@gmail.com""")

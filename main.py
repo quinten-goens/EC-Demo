@@ -32,7 +32,7 @@ if 'key' not in st.session_state:
     st.session_state.key = str(randint(1000, 100000000))
 
 st.sidebar.info("""
-This is a demo of a Streamlit dashboard designed for EUROCONTROL in view of the application process for the position of Performance Data Analyst.
+This web application is a demo of a European Aviation Analytics dashboard designed for EUROCONTROL in view of the application process.
 
 For information about future improvements and releases, see the ABOUT page. 
 """)
