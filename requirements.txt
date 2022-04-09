@@ -14,5 +14,8 @@ mapclassify
 plotly
 colorlog
 colour
+millify
 colourmap
 lorem
+pyxlsb
+xlsxwriter

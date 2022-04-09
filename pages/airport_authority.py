@@ -10,12 +10,14 @@ def app():
     col1.markdown("""
     Welcome to the Airport Authority dashboard. 
     
-    Please select which Airport Authority you are working with (default: Brussels). 
+    The aim of this dashboard is to provide you some insight in to IFR flight statistics and relevant ASMA time (unimpeded and additional) for your relevant airport authority. Please select which Airport Authority you are working with (default: Brussels). 
     
     For more information about the underlying data and the developer of this platform, please check out the ABOUT page.
     """)
+
     df = pd.read_feather('resources/ASMA_Additional_Time.feather')
 
+    col2.markdown("""### Please select an airport authority""")
     APT_NAME = col2.selectbox('Airport Authority', df['APT_NAME'].unique())
 
     if pd.isnull(APT_NAME):
@@ -39,7 +41,7 @@ def app():
 
     st.markdown('## IFR flight statistics')
     col3, col4 = st.columns(2)
-    @st.cache
+    @st.cache(allow_output_mutation=True)
     def make_fig1(APT_NAME):
         df_tmp = df[df['APT_NAME'] == APT_NAME]
         df_tmp = df_tmp.groupby('YEAR').sum()['FLT_ASMA_UNIMP_2'].reset_index()
@@ -52,7 +54,7 @@ def app():
     
     col3.plotly_chart(make_fig1(APT_NAME), use_container_width=True)
 
-    @st.cache
+    @st.cache(allow_output_mutation=True)
     def make_fig2(APT_NAME):
         df_tmp = df[df['APT_NAME'] == APT_NAME]
         df_tmp = change_column_names(df_tmp)
@@ -64,7 +66,7 @@ def app():
 
     st.markdown('## Annual ASMA time flight statistics')
     col5, col6 = st.columns(2)
-    @st.cache
+    @st.cache(allow_output_mutation=True)
     def make_fig3(APT_NAME):
         df_tmp = df[df['APT_NAME'] == APT_NAME]
         df_tmp = df_tmp.groupby('YEAR').mean()[['AVG_UNIMPEDED_ASMA_TIME','AVG_ADDITIONAL_ASMA_TIME']].reset_index()
@@ -77,7 +79,7 @@ def app():
     
     col5.plotly_chart(make_fig3(APT_NAME), use_container_width=True)
 
-    @st.cache
+    @st.cache(allow_output_mutation=True)
     def make_fig4(APT_NAME):
         df_tmp = df[df['APT_NAME'] == APT_NAME]
         df_tmp = df_tmp.groupby('YEAR').mean()[['AVG_UNIMPEDED_ASMA_TIME','AVG_ADDITIONAL_ASMA_TIME']].reset_index()
@@ -101,7 +103,7 @@ def app():
     YEAR = col8_.selectbox('Year of Interest', df['YEAR'].unique())
     
     col7, col8 = st.columns(2)
-    @st.cache
+    @st.cache(allow_output_mutation=True)
     def make_fig5(APT_NAME,YEAR):
         df_tmp = df[df['APT_NAME'] == APT_NAME]
         df_tmp = df[df['YEAR'] == YEAR]
@@ -116,7 +118,7 @@ def app():
     
     col7.plotly_chart(make_fig5(APT_NAME,YEAR), use_container_width=True)
 
-    @st.cache
+    @st.cache(allow_output_mutation=True)
     def make_fig6(APT_NAME, YEAR):
         df_tmp = df[df['APT_NAME'] == APT_NAME]
         df_tmp = df[df['YEAR'] == YEAR]
