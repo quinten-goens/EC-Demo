@@ -1,4 +1,7 @@
 import streamlit as st
+import pandas as pd
+from io import BytesIO
+from pyxlsb import open_workbook as open_xlsb
 
 # Custom imports 
 from multipage import MultiPage
@@ -28,4 +31,23 @@ app.run()
 if 'key' not in st.session_state: 
     st.session_state.key = str(randint(1000, 100000000))
 
-st.sidebar.info("This is a demo of a Streamlit dashboard designed for EUROCONTROL in view of the application process for the position of Performance Data Analyst. See the ABOUT page for more information.")
+st.sidebar.info("""
+This is a demo of a Streamlit dashboard designed for EUROCONTROL in view of the application process for the position of Performance Data Analyst.
+
+For information about future improvements and releases, see the ABOUT page. 
+""")
+#def to_excel():
+#    df = pd.read_feather('resources/ASMA_Additional_Time.feather')
+#    output = BytesIO()
+#    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+#    df.to_excel(writer, index=False, sheet_name='Sheet1')
+#    workbook = writer.book
+#    worksheet = writer.sheets['Sheet1']
+#    format1 = workbook.add_format({'num_format': '0.00'}) 
+#    worksheet.set_column('A:A', None, format1)  
+#    writer.save()
+##    processed_data = output.getvalue()
+#    return processed_data
+
+#df_xlsx = to_excel()
+#st.sidebar.download_button(label='📥 Download Raw Data', data=df_xlsx, file_name= 'ASMA_Additional_Time.xlsx')
