@@ -7,6 +7,7 @@ from datetime import datetime
 import plotly.express as px
 import json
 import urllib.request
+import pickle
 
 
 def app():
@@ -62,34 +63,9 @@ def app():
 
     @st.cache(allow_output_mutation=True)
     def map_graph():
-        countries = pd.read_feather('resources/countries.feather')
-        EU_url = 'https://gist.githubusercontent.com/phil-pedruco/10447085/raw/426fb47f0a6793776a044f17e66d17cbbf8061ad/countries.geo.json'
-        def read_geojson(url):
-            with urllib.request.urlopen(url) as url:
-                jdata = json.loads(url.read().decode())
-            return jdata 
-        
-        jdata = read_geojson(EU_url)
-        YEAR = 2021
-        df_tmp = df[df['YEAR']==YEAR]
-        df_tmp = df_tmp.groupby(['YEAR','STATE_NAME']).sum()['FLT_ASMA_UNIMP_2'].reset_index()
-        df_tmp = df_tmp.merge(countries,left_on='STATE_NAME', right_on='country_names', how='left')
-
-        fig= go.Figure(go.Choroplethmapbox(z=df_tmp['FLT_ASMA_UNIMP_2'].to_list(), # This is the data.
-                                    locations=df_tmp['locations'].to_list(),
-                                    colorscale='reds',
-                                    colorbar=dict(thickness=20, ticklen=3),
-                                    geojson=jdata,
-                                    text=df_tmp['STATE_NAME'].to_list(),
-                                    hoverinfo='all',
-                                    marker_line_width=1, marker_opacity=0.75))
-                                    
-                                    
-        fig.update_layout(title_text= f'Number of IFR flights in {YEAR} per country',width = 700,height=700,
-                        mapbox = dict(center= dict(lat=54.5260,  lon=15.2551),
-                                        style='carto-positron',
-                                        zoom=2.4,
-                                    ));
+        fig_inbound_increase = open("resources/fig_inbound_total.pkl", "rb")
+        fig = pickle.load(fig_inbound_increase)
+        fig_inbound_increase.close()
         return fig
     
     col2.plotly_chart(map_graph(), use_container_width=True)
