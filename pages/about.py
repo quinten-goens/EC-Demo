@@ -22,8 +22,8 @@ def app():
 * Port the application to a more versatile and scalable cloud platform (e.g. [AWS](https://aws.amazon.com/), [Google Cloud](https://cloud.google.com/), [Azure](https://azure.microsoft.com/en-us/), etc.)
 * Create a more robust and flexible user interface by switching to a more function rich dashboarding platform such as e.g., [Dash Plotly](https://plotly.com/dash/) or [Panel](https://panel.holoviz.org/).""")
     st.markdown("""
-    ### Technical tools
-    Here's a (non-exhaustive) list of the tools used to develop this dashboard: """)
+    ### Software and hosting tools
+    Here's a (non-exhaustive) list of the tools used to develop and host this dashboard: """)
 
     col1, col2,col2_ = st.columns((1,3,1))
     col1.image('resources/python.png', width=150)
@@ -76,7 +76,7 @@ The application is fully containerized and is hosted by Streamlit.io, but could 
 
     st.markdown("""
     ### The developer
-    The developer of this platform is [Quinten Goens](https://www.linkedin.com/in/quinten-goens-741457144/). A Physicist and Astronomer who gained affinity and skills in Data Analytics / Science, Data Engineering and Cloud Architecture throughout his studies and follow up career as a Data Analyst / Data Engineer. Quinten has a particular passion for Dashboard development and Data Visualization and Interpretation. During his free time he can be found in the indoor climbing halls around Brussels with friends or learning new data / cloud skills at home.   
+    The developer of this platform is [Quinten Goens](https://www.linkedin.com/in/quinten-goens-741457144/). A physicist and astronomer who gained affinity and skills in data analytics / science, data engineering and cloud architecture throughout his studies and follow up career as a Data Analyst / Data Engineer. Quinten has a particular passion for dashboard development and data visualization and interpretation. During his free time he can be found in the indoor climbing halls around Brussels with friends or learning new data / cloud skills at home or in a cosy coffee place.   
     """)
 
     if st.button("Hire me"):
