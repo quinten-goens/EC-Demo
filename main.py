@@ -6,7 +6,7 @@ from pyxlsb import open_workbook as open_xlsb
 # Custom imports 
 from multipage import MultiPage
 from pages import home
-from pages import airport_authority,general_public, network_manager, about
+from pages import er_diagram,airport_authority,general_public, network_manager, about
 from random import randint
 
 st.set_page_config(page_title = "Analytics Dashboard", page_icon = "✈️", layout = "wide")
@@ -21,6 +21,7 @@ app = MultiPage()
 
 # Add all your applications (pages) here
 app.add_page("HOME", home.app)
+app.add_page("ER DIAGRAM", er_diagram.app)
 app.add_page("AIRPORT AUTHORITY", airport_authority.app)
 app.add_page("GENERAL PUBLIC", general_public.app)
 app.add_page("NETWORK MANAGER", network_manager.app)

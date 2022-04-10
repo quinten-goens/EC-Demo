@@ -268,3 +268,31 @@ If you'd like to compare to the European reference, please select "Europe (Refer
     col11.plotly_chart(make_fig8(AIRPORT1,YEAR), use_container_width=True)
     col12.plotly_chart(make_fig8(AIRPORT2,YEAR), use_container_width=True)
 
+    st.markdown('#### European total IRF flight statistics and 2022 projection using [Prophet](https://facebook.github.io/prophet/)')
+    col13,col14 = st.columns(2)
+    
+    col13.image('resources/fb_prophet_prediction.png')
+    with col14.expander('Additional information about Prophet'):
+        st.markdown("""
+        #### [Prophet](https://facebook.github.io/prophet/)
+        Prophet (developed by Meta) is an open-source algorithm for generating time-series models that uses a few old ideas with some new twists. It is particularly good at modeling time series that have multiple seasonalities and doesn’t face some of the drawbacks of other algorithms. At its core is the sum of three functions of time plus an error term: growth g(t), seasonality s(t), holidays h(t) , and error e :
+
+        * The growth function models the overall trend of the data. The old idea should be familiar to anyone with a basic knowledge of linear and logistic functions. The new idea incorporated into Facebook prophet is that the growth trend can be present at all points in the data or can be altered at what Prophet calls “changepoints”.
+        * The seasonality function is simply a Fourier Series as a function of time. If you are unfamiliar with Fourier Series, an easy way to think about it is the sum of many successive sines and cosines. Each sine and cosine term is multiplied by some coefficient. This sum can approximate nearly any curve or in the case of Facebook Prophet, the seasonality (cyclical pattern) in our data. 
+        * The holiday function allows Facebook Prophet to adjust forecasting when a holiday or major event may change the forecast. It takes a list of dates (there are built-in dates of US holidays or you can define your own dates) and when each date is present in the forecast adds or subtracts value from the forecast from the growth and seasonality terms based on historical data on the identified holiday dates.
+        """)
+    with col14.expander('Additional information and interpretation'):
+        st.markdown("""
+        #### Additional information
+        The graph left provides the following information:
+        * x-axis: The date
+        * y-axis: The total number of inbound IFR flights in Europe
+        * The black dots: Actual datapoints indicating the total number of inbound IFR flights in Europe
+        * The blue line: Fitted function based on the available data
+        * Shaded blue area: Uncertainty of the fitted function
+
+        You can see the data ends before 2022. The fitted function predicts the IFR flight statistics for 2022. 
+        
+        #### Interpretation
+        According to the timeseries projection it is expected that flight numbers will likely normalize to pre-covid numbers within 2022.""")
+

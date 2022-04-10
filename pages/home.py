@@ -41,7 +41,7 @@ by <b>Quinten Goens</b>.""",unsafe_allow_html=True)
 
     col4.markdown("""   
 On this page you can view some general metrics for the whole of Europe. More in depth metrics and visualizations can be found in the various pages of the application: 
-* **ER DIAGRAM** - Entities and Relationships Diagram (Question 1).
+* **ER DIAGRAM** - Entity Relationship Diagram (Question 1).
 * **QUERIES & VIEWS** - The various requested views and queries (Question 2).
 * **AIRPORT AUTHORITY** - A dynamic dashboard including data visualizations for an airport authority (Question 3).
 * **GENERAL PUBLIC** - A dynamic dashboard including data visualizations for the general public (Question 3).
@@ -51,3 +51,6 @@ On this page you can view some general metrics for the whole of Europe. More in 
 These can be navigated to by using the App Navigation dropdown in the left sidebar. If you encounter loading issues, please refresh and try again.""",unsafe_allow_html=True)
 
     st.markdown("""**Note:** Note that the <t style="color:#149414"><b>green</b></t> and <t style="color:#FF0000"><b>red</b></t> colored metrics (see above) indicate <t style="color:#149414"><b>increases</b></t>  or <t style="color:#FF0000"><b>decreases</b></t> relative to same metric the previous year. These metrics are Europe wide.""",unsafe_allow_html=True)
+    with st.expander('Acronyms and terminology'):
+        st.markdown("""A list of acronyms and terminology used in this application can be found below. Source: [EUROCONTROL (PRU)](https://ansperformance.eu/methodology/additional-asma-time-pi/).""",unsafe_allow_html=True)
+        st.table(pd.read_feather('resources/acronyms.feather'))
