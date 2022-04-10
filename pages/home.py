@@ -1,6 +1,7 @@
 import streamlit as st
 import lorem
 import pandas as pd
+import pickle
 from millify import millify
 def app():
     st.markdown("<h1 style='text-align: left; color: black;'>Home</h1>", unsafe_allow_html=True)
@@ -10,7 +11,7 @@ by <b>Quinten Goens</b>.""",unsafe_allow_html=True)
  
 
     df = pd.read_feather('resources/ASMA_Additional_Time.feather')
-    col1,col2, col3, col4 = st.columns((1,1,1,4))
+    col4,col1,col2, col3 = st.columns((4,1,1,1))
     FLT_2021 = df[df['YEAR']==2021]['FLT_ASMA_UNIMP_2'].sum()
     FLT_2020 = df[df['YEAR']==2020]['FLT_ASMA_UNIMP_2'].sum()
     FLT_2019 = df[df['YEAR']==2019]['FLT_ASMA_UNIMP_2'].sum()
@@ -39,7 +40,7 @@ by <b>Quinten Goens</b>.""",unsafe_allow_html=True)
     col3.metric("Avg. addit. ASMA time 2021 (median)", millify(ASMA_ADD_2021,precision=2), delta=round(((ASMA_ADD_2021-ASMA_ADD_2020)/ASMA_ADD_2020)*100,2), delta_color="normal")
 
     col4.markdown("""   
-On this page, the HOME page, you can view some general metrics for the whole of Europe. More in depth metrics and visualizations can be found in the various pages of the application: 
+On this page you can view some general metrics for the whole of Europe. More in depth metrics and visualizations can be found in the various pages of the application: 
 * **ER DIAGRAM** - Entities and Relationships Diagram (Question 1).
 * **QUERIES & VIEWS** - The various requested views and queries (Question 2).
 * **AIRPORT AUTHORITY** - A dynamic dashboard including data visualizations for an airport authority (Question 3).
@@ -50,5 +51,3 @@ On this page, the HOME page, you can view some general metrics for the whole of 
 These can be navigated to by using the App Navigation dropdown in the left sidebar. If you encounter loading issues, please refresh and try again.""",unsafe_allow_html=True)
 
     st.markdown("""**Note:** Note that the <t style="color:#149414"><b>green</b></t> and <t style="color:#FF0000"><b>red</b></t> colored metrics (see above) indicate <t style="color:#149414"><b>increases</b></t>  or <t style="color:#FF0000"><b>decreases</b></t> relative to same metric the previous year. These metrics are Europe wide.""",unsafe_allow_html=True)
-    
-    

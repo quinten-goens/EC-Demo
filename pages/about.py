@@ -11,6 +11,9 @@ def app():
 * [European Daily COVID-19 Case Counts by European Centre for Disease Control](https://opendata.ecdc.europa.eu/covid19/nationalcasedeath_eueea_daily_ei/csv/data.csv)
 """)
     st.markdown("""
+    ### Sidebar image
+* <a href="http://www.freepik.com">Designed by macrovector / Freepik</a>""",unsafe_allow_html=True)
+    st.markdown("""
 ### Future releases and improvements
 * Improve loading times further.
 * Add automatic data fetching from the EUROCONTROL PRU website or implement an API for more granular data to provide daily up to date data. 

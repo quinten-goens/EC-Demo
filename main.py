@@ -34,7 +34,7 @@ if 'key' not in st.session_state:
 st.sidebar.info("""
 This web application is a demo of a European Aviation Analytics dashboard designed for EUROCONTROL in view of the application process.
 
-For information about future improvements and releases, see the ABOUT page. 
+For information about the application and its' future releases and improvements see the ABOUT page. 
 """)
 #def to_excel():
 #    df = pd.read_feather('resources/ASMA_Additional_Time.feather')

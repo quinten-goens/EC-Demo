@@ -69,7 +69,16 @@ def app():
         return fig
     
     col2.plotly_chart(map_graph(), use_container_width=True)
-    
+    with st.expander('Additional information and interpretation'):
+        st.markdown("""
+        ### Additional information
+        The graph in the top right corner provides information about the number of inbound IFR (Instrument Flight Rules) flights with unimpeded reference time for all European countries in 2021. The unimpeded reference time is the time it takes for a flight to reach the airport and be cleared for departure. 
+        
+        The graph shows total IFR flights in 2021.
+
+        ### Interpretation
+        Spain had the most inbound IFR flights in 2021 (around 467k flights) followed up by Germany (around 428k flights) and France (around 314k flights).
+        """)
     st.markdown('## Relative popularity of selected flight destinations by country and airport')
     col3, col4 = st.columns(2)
     
@@ -100,7 +109,16 @@ def app():
         return fig
     
     col4.plotly_chart(make_fig2(flight_destinations, start_period, end_period), use_container_width=True)
-    
+    with st.expander('Additional information and interpretation'):
+        st.markdown("""
+        ### Additional information
+        The graph above provides information about the number of inbound IFR (Instrument Flight Rules) flights with unimpeded reference time for the selected European countries in over time. The unimpeded reference time is the time it takes for a flight to reach the airport and be cleared for departure. 
+        
+        The left graph shows total IFR flights for each country over time whereas the right graph does the same but for each airport in the selected countries.
+
+        ### Interpretation
+        In both graphs a strong seasonality can be noted in most (if not all) countries and airports. The increase of flights in the summer period is related with the holiday period.
+        """)
     st.markdown('## Impact of COVID-19 on European aviation (Covid-19 data: ECDC)')
     st.markdown('### Total IFR flights for Europe')
     
@@ -161,6 +179,16 @@ def app():
 
     col6a.plotly_chart(make_fig4a(), use_container_width=True)
 
+    with st.expander('Additional information and interpretation'):
+        st.markdown("""
+        ### Additional information
+        The graph above provides information about the number of inbound IFR (Instrument Flight Rules) flights with unimpeded reference time for Europe over time with a specific emphasis on the [Covid-19](https://en.wikipedia.org/wiki/Covid-19) period. The unimpeded reference time is the time it takes for a flight to reach the airport and be cleared for departure. 
+        
+        The left graph shows total IFR flights for Europe over time during the covid-19 period whereas the right graph shows percentual changes relative to the same metric the month earlier.
+
+        ### Interpretation
+        In both graphs a strong seasonality can be noted in Europe, this is linked due to the holiday period in which more people travel. A decrease of the number of flights with about a factor 10 can be noted during the Covid-19 period.
+        """)
 
     st.markdown('### IFR flights for selected countries')
 
@@ -195,6 +223,17 @@ def app():
         return fig
         
     col5.plotly_chart(make_fig3(flight_destinations), use_container_width=True)
+
+    with st.expander('Additional information and interpretation'):
+        st.markdown("""
+        ### Additional information
+        The graph above provides information about the number of inbound IFR (Instrument Flight Rules) flights with unimpeded reference time for the selected countries over time with a specific emphasis on the [Covid-19](https://en.wikipedia.org/wiki/Covid-19) period. The unimpeded reference time is the time it takes for a flight to reach the airport and be cleared for departure. 
+        
+        The left graph shows total IFR flights for the selected countries over time during the covid-19 period whereas the right graph shows percentual changes relative to the same metric the month earlier. On both graphs a logarithmic bar chart indicates the daily Covid-19 cases in Europe (source data: ECDC).
+
+        ### Interpretation
+        In both graphs a strong seasonality can be noted in most (if not all) selected countries, this is linked due to the holiday period in which more people travel. A decrease of the number of flights with about a factor 10 can be noted during the Covid-19 period (i.e. the period in which the number of cases skyrockets).
+        """)
 
     @st.cache(allow_output_mutation=True)
     def make_fig4(flight_destinations):
@@ -289,6 +328,16 @@ def app():
 
     col8a.plotly_chart(make_fig6a(), use_container_width=True)
 
+    with st.expander('Additional information and interpretation'):
+        st.markdown("""
+        ### Additional information
+        The graphs above provide information and insight in the average unimpeded ASMA time and the average additional ASMA time for Europe. ASMA stands for Arrival Sequencing and Metering Area and is often defined as a vertical column around the relevant airport with a radius of 40 [NM](https://en.wikipedia.org/wiki/Nautical_mile). ASMA entry time is the time the flight enters the area within 40 NM radius around the airport and the Actual Landing Time is denoted as ALDT. The additional ASMA time is the difference between the actual ASMA transit time and the median unimpeded ASMA transit time for the group of similar flights. The ASMA additional time for the airport is the average of the average ASMA values for all flights. 
+        
+        The left graph shows average unimpeded ASMA time over time whereas the right one shows the average additional ASMA time over time. On both graphs a logarithmic bar chart indicates the daily Covid-19 cases in Europe (source data: ECDC). 
+ 
+        ### Interpretation
+        An overall increase of avg. unimpeded ASMA time can be noted over time, this increase accellerated during the Covid-19 outbreak. The average additional ASMA decreases over time and dives down during Covid-19. Likely this phenomenom is related to the decrease in the number of flights leading to shorter queuing times and thus shorter additional ASMA times.""")
+        
 
     st.markdown('### ASMA time for selected countries')
 
@@ -351,3 +400,14 @@ def app():
         return fig
 
     col8.plotly_chart(make_fig6(flight_destinations), use_container_width=True)
+
+    with st.expander('Additional information and interpretation'):
+        st.markdown("""
+        ### Additional information
+        The graphs above provide information and insight in the average unimpeded ASMA time and the average additional ASMA time for the selected countries. ASMA stands for Arrival Sequencing and Metering Area and is often defined as a vertical column around the relevant airport with a radius of 40 [NM](https://en.wikipedia.org/wiki/Nautical_mile). ASMA entry time is the time the flight enters the area within 40 NM radius around the airport and the Actual Landing Time is denoted as ALDT. The additional ASMA time is the difference between the actual ASMA transit time and the median unimpeded ASMA transit time for the group of similar flights. The ASMA additional time for the airport is the average of the average ASMA values for all flights. 
+        
+        The left graph shows average unimpeded ASMA time over time whereas the right one shows the average additional ASMA time over time. On both graphs a logarithmic bar chart indicates the daily Covid-19 cases in Europe (source data: ECDC). 
+ 
+        ### Interpretation
+        An overall increase of avg. unimpeded ASMA time can be noted over time, this increase accellerated during the Covid-19 outbreak. The average additional ASMA decreases over time and dives down during Covid-19. Likely this phenomenom is related to the decrease in the number of flights leading to shorter queuing times and thus shorter additional ASMA times.""")
+

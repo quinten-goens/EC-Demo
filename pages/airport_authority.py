@@ -63,6 +63,16 @@ def app():
     
     col4.plotly_chart(make_fig2(APT_NAME), use_container_width=True)
     
+    with st.expander('Additional information and interpretation'):
+        st.markdown("""
+        ### Additional information
+        The graphs above provides information about the number of inbound IFR (Instrument Flight Rules) flights with unimpeded reference time for a selected airport authority. The unimpeded reference time is the time it takes for a flight to reach the airport and be cleared for departure. 
+        
+        The left graph shows yearly total IFR flights whereas the right one shows monthly totals for various years.
+
+        ### Interpretation
+        Both graphs indicate for various airport authorities a significant decrease in flights in 2020, this is the effect of [Covid-19 and the lock-down restrictions](https://en.wikipedia.org/wiki/COVID-19). A specific note to be made for the airport authority Brussels, in 2016 a not insignificant dip in flights is noticable around March and April 2016. This likely correlates to the [2016 Brussels Bombings](https://en.wikipedia.org/wiki/2016_Brussels_bombings).  
+        """)
 
     st.markdown('## Annual ASMA time flight statistics')
     col5, col6 = st.columns(2)
@@ -96,7 +106,19 @@ def app():
         return fig
     
     col6.plotly_chart(make_fig4(APT_NAME), use_container_width=True)
+    
+    with st.expander('Additional information and interpretation'):
+        st.markdown("""
+        ### Additional information
+        The graphs above provide information and insight in the average unimpeded ASMA time and the average additional ASMA time for a selected airport authority. ASMA stands for Arrival Sequencing and Metering Area and is often defined as a vertical column around the relevant airport with a radius of 40 [NM](https://en.wikipedia.org/wiki/Nautical_mile). ASMA entry time is the time the flight enters the area within 40 NM radius around the airport and the Actual Landing Time is denoted as ALDT. The additional ASMA time is the difference between the actual ASMA transit time and the median unimpeded ASMA transit time for the group of similar flights. The ASMA additional time for the airport is the average of the average ASMA values for all flights. 
+        
+        The left graph shows average (unimpeded and additional) ASMA time per year whereas the right one shows the percentage change in a certain period for various years.
 
+        Note: Clicking the legend allows you to disable the corresponding graph and can enhance the visualization. 
+
+        ### Interpretation
+        A large percentual increase of the avg. unimpeded ASMA time from 2019 to 2020 for various authorities indicates the potential impact of [Covid-19 and the lock-down restrictions](https://en.wikipedia.org/wiki/COVID-19).  
+        """)
     st.markdown('## Monthly ASMA time flight statistics')
     col7_, col8_ = st.columns(2)
     col7_.markdown('This section allows to view more granular data on the monthly level. Please select the year of interest.')
@@ -141,4 +163,16 @@ def app():
     
     col8.plotly_chart(make_fig6(APT_NAME,YEAR), use_container_width=True)
 
+    with st.expander('Additional information and interpretation'):
+        st.markdown("""
+        ### Additional information
+        The graphs above provide information and insight in the average unimpeded ASMA time and the average additional ASMA time for a selected airport authority. ASMA stands for Arrival Sequencing and Metering Area and is often defined as a vertical column around the relevant airport with a radius of 40 [NM](https://en.wikipedia.org/wiki/Nautical_mile). ASMA entry time is the time the flight enters the area within 40 NM radius around the airport and the Actual Landing Time is denoted as ALDT. The additional ASMA time is the difference between the actual ASMA transit time and the median unimpeded ASMA transit time for the group of similar flights. The ASMA additional time for the airport is the average of the average ASMA values for all flights. 
+        
+        The left graph shows average (unimpeded and additional) ASMA time per month for the selected year whereas the right one shows the percentage change in a certain period for various months for the selected year.
+
+        Note: Clicking the legend allows you to disable the corresponding graph and can enhance the visualization. 
+
+        ### Interpretation
+        No specific interpretations to be made.  
+        """)
     
