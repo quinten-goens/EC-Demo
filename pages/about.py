@@ -74,11 +74,31 @@ Docker is a platform for developers and sysadmins to build, ship, and run softwa
 
 The application is fully containerized and is hosted by Streamlit.io, but could as easily be hosted on Azure, AWS, Google Cloud, or any other cloud provider because of the containerization.""")
 
+    col17, col18,col18_ = st.columns((1, 3, 1))
+    col17.image('resources/postgre.png', width=200)
+    col18.markdown("""
+### PostgreSQL
+PostgreSQL is a powerful, open source object-relational database system. It is the most widely used relational database, and is used by a wide variety of other applications. It is a powerful, open source database system that has earned a reputation for reliability, flexibility, and performance.""")
+    
+    col19, col20,col20_ = st.columns((1, 3, 1))
+    col19.image('resources/drawio.png', width=150)
+    col20.markdown("""
+### Draw.io
+Draw.io is a free and open source cross-platform graph drawing software developed in HTML5 and JavaScript. Its interface can be used to create diagrams such as flowcharts, wireframes, ER/UML diagrams, organizational charts, and network diagrams.""")
+    
+    col15, col16,col16_ = st.columns((1, 3, 1))
+    col15.image('resources/prophet.png', width=200)
+    col16.markdown("""
+### Prophet
+Prophet is open source software released by Facebook's Core Data Science team. It is available for download on CRAN and PyPI. It is a procedure for forecasting time series data based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects. It works best with time series that have strong seasonal effects and several seasons of historical data. Prophet is robust to missing data and shifts in the trend, and typically handles outliers well.
+""")
+    
+    
     st.markdown("""
     ### The developer
     The developer of this platform is [Quinten Goens](https://www.linkedin.com/in/quinten-goens-741457144/). A physicist and astronomer who gained affinity and skills in data analytics / science, data engineering and cloud architecture throughout his studies and follow up career as a Data Analyst / Data Engineer. Quinten has a particular passion for dashboard development and data visualization and interpretation. During his free time he can be found in the indoor climbing halls around Brussels with friends or learning new data / cloud skills at home or in a cosy coffee place.   
     """)
-
+   
     if st.button("Hire me"):
         st.balloons()
         st.markdown("""Get in touch via: QGoens@gmail.com""")

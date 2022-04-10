@@ -47,7 +47,7 @@ The following Entity Relationship diagram represents the underlying data tables 
 ### Design choice motivations
 Three entities are defined (IFR Flight, Airport, ASMA Entry) as they represent the underlying code concepts. The attributes are allocated to the entities based on the data modelling requirements.
 
-There are three relationships: 
+There are four destinct relationships: 
 * **IFR Flight - ASMA Entry: Has**
     * Cardinality: 1:1 
         * Each flight has exactly one ASMA entry and each ASMA entry belongs to exactly one flight. 
@@ -77,28 +77,3 @@ There are three relationships:
 #with st.expander('Table view ER Diagram'):
     #st.markdown("""For query designing purposes.""")
     #st.image("resources/tableview.drawio.png",caption='Table view ER Diagram',#=False)
-
-SELECT 
-  date_part('year', f.departure_date), 
-  date_part('month', f.departure_date), 
-  to_char(f.departure_date, 'MON'), 
-  a.icao, 
-  a.name, 
-  s.name, 
-  a.asma_radius, 
-  COUNT(f.id), 
-  SUM(ae.unimpeded_asma_time), 
-  SUM(ae.additional_asma_time) 
-FROM 
-  flight as f 
-  JOIN asma_entry AS ae ON f.asma_entry_id = ae.id 
-  JOIN airport AS a ON f.arrival_airport_id = a.id 
-  JOIN state as s ON a.state_id = s.id 
-GROUP BY 
-  date_part('year', f.departure_date), 
-  date_part('month', f.departure_date), 
-  to_char(f.departure_date, 'MON'), 
-  a.icao, 
-  a.name, 
-  s.name, 
-  a.asma_radius;

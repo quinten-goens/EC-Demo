@@ -40,15 +40,15 @@ by <b>Quinten Goens</b>.""",unsafe_allow_html=True)
     col3.metric("Avg. addit. ASMA time 2021 (median)", millify(ASMA_ADD_2021,precision=2), delta=round(((ASMA_ADD_2021-ASMA_ADD_2020)/ASMA_ADD_2020)*100,2), delta_color="normal")
 
     col4.markdown("""   
-On this page you can view some general metrics for the whole of Europe. More in depth metrics and visualizations can be found in the various pages of the application: 
+The webapplication provides the solutions to the various questions as posed in the technical test. On this page you can view some general metrics for the whole of Europe, however, more in depth solutions, metrics and visualizations can be found in the various pages of the application: 
 * **ER DIAGRAM** - Entity Relationship Diagram (Question 1).
 * **QUERIES & VIEWS** - The various requested views and queries (Question 2).
-* **AIRPORT AUTHORITY** - A dynamic dashboard including data visualizations for an airport authority (Question 3).
-* **GENERAL PUBLIC** - A dynamic dashboard including data visualizations for the general public (Question 3).
-* **NETWORK MANAGER** - A dynamic dashboard including data visualizations for a network manager (Question 3).
-* **ABOUT** - About the application and the author incl. the technical tools used in the creation of this web app.
+* **AIRPORT AUTHORITY** - Data visualizations for an airport authority (Question 3).
+* **GENERAL PUBLIC** - Data visualizations for the general public (Question 3).
+* **NETWORK MANAGER** - Data visualizations for a network manager (Question 3).
+* **ABOUT** - About the application, underlying data and the developer of this web app.
 
-These can be navigated to by using the App Navigation dropdown in the left sidebar. If you encounter loading issues, please refresh and try again.""",unsafe_allow_html=True)
+These can be navigated to by using the App Navigation dropdown in the left sidebar. If you encounter loading issues, please refresh and try again (Note: Tested only on Firefox / Chrome).""",unsafe_allow_html=True)
 
     st.markdown("""**Note:** Note that the <t style="color:#149414"><b>green</b></t> and <t style="color:#FF0000"><b>red</b></t> colored metrics (see above) indicate <t style="color:#149414"><b>increases</b></t>  or <t style="color:#FF0000"><b>decreases</b></t> relative to same metric the previous year. These metrics are Europe wide.""",unsafe_allow_html=True)
     with st.expander('Acronyms and terminology'):
