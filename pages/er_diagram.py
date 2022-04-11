@@ -19,7 +19,7 @@ In this section an overview of the explicit data modelling requirements is given
     * A flight number (e.g., BA1234)
     * A departure airport
     * A destination airport
-    * A date of departure
+    * A date of flight (i.e. the arrival date, the departure date can be derived)
     * A departure time (e.g., off-blocks time)
     * An arrival time (e.g., on-blocks time)
     * An ASMA entry (i.e. the flight will be entering an ASMA upon reaching the destination airport)
