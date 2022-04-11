@@ -25,7 +25,7 @@ def app():
 
     col1.markdown("""### Select parameters of interest
     """) 
-    col1.markdown("Please select which destination country (or countries) and a time period which you are interested in to learn more about.")
+    col1.markdown("Please select a destination country (or countries) and a time period which you are interested in to learn more about.")
     flight_destinations = col1.multiselect('Destination countries of interest', default = ['Malta','Belgium','Netherlands','Portugal'],options=list(df['STATE_NAME'].unique()))
 
     try:
