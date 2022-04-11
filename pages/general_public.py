@@ -14,9 +14,9 @@ def app():
     st.markdown("<h1 style='text-align: left; color: black;'>General Public Dashboard</h1>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     col1.markdown("""
-    Welcome to the general public dashboard. 
+    **Welcome to the general public dashboard.** 
     
-    The aim of this dashboard is to provide you some insight in to popularity of various flight destinations and the impact of the Covid-19 on European aviation. 
+    The aim of this dashboard is to **provide you some insight in to popularity of various flight destinations and the impact of the Covid-19 on European aviation.** 
     
     For more information about the underlying data and the developer of this platform, please check out the ABOUT page.
     """)
@@ -72,9 +72,9 @@ def app():
     with st.expander('Additional information and interpretation'):
         st.markdown("""
         ### Additional information
-        The graph in the top right corner provides information about the number of inbound IFR (Instrument Flight Rules) flights with unimpeded reference time for all European countries in 2021. The unimpeded reference time is the time it takes for a flight to reach the airport and be cleared for departure. 
+        The chloropleth graph in the top right corner provides information about the number of inbound IFR (Instrument Flight Rules) flights with unimpeded reference time for all European countries in 2021. The unimpeded reference time is the time it takes for a flight to reach the airport and be cleared for departure. 
         
-        The graph shows total IFR flights in 2021.
+        The graph shows total IFR flights for each country in 2021.
 
         ### Interpretation
         Spain had the most inbound IFR flights in 2021 (around 467k flights) followed up by Germany (around 428k flights) and France (around 314k flights).
@@ -184,10 +184,10 @@ def app():
         ### Additional information
         The graph above provides information about the number of inbound IFR (Instrument Flight Rules) flights with unimpeded reference time for Europe over time with a specific emphasis on the [Covid-19](https://en.wikipedia.org/wiki/Covid-19) period. The unimpeded reference time is the time it takes for a flight to reach the airport and be cleared for departure. 
         
-        The left graph shows total IFR flights for Europe over time during the covid-19 period whereas the right graph shows percentual changes relative to the same metric the month earlier.
+        The left graph shows total IFR flights for Europe over time during the covid-19 period whereas the right graph shows percentual changes relative to the same metric a month earlier. On both graphs a logarithmic bar chart indicates the daily Covid-19 cases in Europe (source data: ECDC).
 
         ### Interpretation
-        In both graphs a strong seasonality can be noted in Europe, this is linked due to the holiday period in which more people travel. A decrease of the number of flights with about a factor 10 can be noted during the Covid-19 period.
+        In both graphs a strong seasonality can be noted in Europe, this is linked to the holiday period in which more people travel. A decrease of the number of flights with about a factor 10 can be noted during the Covid-19 period.
         """)
 
     st.markdown('### IFR flights for selected countries')
@@ -229,7 +229,7 @@ def app():
         ### Additional information
         The graph above provides information about the number of inbound IFR (Instrument Flight Rules) flights with unimpeded reference time for the selected countries over time with a specific emphasis on the [Covid-19](https://en.wikipedia.org/wiki/Covid-19) period. The unimpeded reference time is the time it takes for a flight to reach the airport and be cleared for departure. 
         
-        The left graph shows total IFR flights for the selected countries over time during the covid-19 period whereas the right graph shows percentual changes relative to the same metric the month earlier. On both graphs a logarithmic bar chart indicates the daily Covid-19 cases in Europe (source data: ECDC).
+        The left graph shows total IFR flights for the selected countries over time during the covid-19 period whereas the right graph shows percentual changes relative to the same metric a month earlier. On both graphs a logarithmic bar chart indicates the daily Covid-19 cases in Europe (source data: ECDC).
 
         ### Interpretation
         In both graphs a strong seasonality can be noted in most (if not all) selected countries, this is linked due to the holiday period in which more people travel. A decrease of the number of flights with about a factor 10 can be noted during the Covid-19 period (i.e. the period in which the number of cases skyrockets).
@@ -336,7 +336,7 @@ def app():
         The left graph shows average unimpeded ASMA time over time whereas the right one shows the average additional ASMA time over time. On both graphs a logarithmic bar chart indicates the daily Covid-19 cases in Europe (source data: ECDC). 
  
         ### Interpretation
-        An overall increase of avg. unimpeded ASMA time can be noted over time, this increase accellerated during the Covid-19 outbreak. The average additional ASMA decreases over time and dives down during Covid-19. Likely this phenomenom is related to the decrease in the number of flights leading to shorter queuing times and thus shorter additional ASMA times.""")
+        An overall increase of avg. unimpeded ASMA time can be noted over time, this increase accellerated during the Covid-19 outbreak. The average additional ASMA time decreases over time and dives down during Covid-19. Likely this phenomenom is related to the decrease in the number of flights leading to shorter queuing times and thus shorter additional ASMA times.""")
         
 
     st.markdown('### ASMA time for selected countries')
@@ -409,5 +409,5 @@ def app():
         The left graph shows average unimpeded ASMA time over time whereas the right one shows the average additional ASMA time over time. On both graphs a logarithmic bar chart indicates the daily Covid-19 cases in Europe (source data: ECDC). 
  
         ### Interpretation
-        An overall increase of avg. unimpeded ASMA time can be noted over time, this increase accellerated during the Covid-19 outbreak. The average additional ASMA decreases over time and dives down during Covid-19. Likely this phenomenom is related to the decrease in the number of flights leading to shorter queuing times and thus shorter additional ASMA times.""")
+        An overall increase of avg. unimpeded ASMA time can be noted over time, this increase accellerated during the Covid-19 outbreak. The average additional ASMA time decreases over time and dives down during Covid-19. Likely this phenomenom is related to the decrease in the number of flights leading to shorter queuing times and thus shorter additional ASMA times.""")
 

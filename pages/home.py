@@ -6,8 +6,8 @@ from millify import millify
 def app():
     st.markdown("<h1 style='text-align: left; color: black;'>Home</h1>", unsafe_allow_html=True)
     st.markdown("""
-Welcome to the Home page of the European Aviation Analytics Dashboard. This webapplication is developed 
-by <b>Quinten Goens</b>.""",unsafe_allow_html=True)
+Welcome to the Home page of the **European Aviation Analytics Dashboard**. This webapplication is developed 
+by **Quinten Goens** and provides the **proposed solutions to the various questions as posed in the technical test** provided by EUROCONTROL as part of the application process.""",unsafe_allow_html=True)
  
 
     df = pd.read_feather('resources/ASMA_Additional_Time.feather')
@@ -40,7 +40,7 @@ by <b>Quinten Goens</b>.""",unsafe_allow_html=True)
     col3.metric("Avg. addit. ASMA time 2021 (median)", millify(ASMA_ADD_2021,precision=2), delta=round(((ASMA_ADD_2021-ASMA_ADD_2020)/ASMA_ADD_2020)*100,2), delta_color="normal")
 
     col4.markdown("""   
-The webapplication provides the solutions to the various questions as posed in the technical test. On this page you can view some general metrics for the whole of Europe, however, more in depth solutions, metrics and visualizations can be found in the various pages of the application: 
+On this page you can view some general metrics for the whole of Europe, however, **the proposed solutions as well as in depth metrics and visualizations can be found in the various pages of the application**: 
 * **ER DIAGRAM** - Entity Relationship Diagram (Question 1).
 * **QUERIES & VIEWS** - The various requested views and queries (Question 2).
 * **AIRPORT AUTHORITY** - Data visualizations for an airport authority (Question 3).
@@ -48,7 +48,7 @@ The webapplication provides the solutions to the various questions as posed in t
 * **NETWORK MANAGER** - Data visualizations for a network manager (Question 3).
 * **ABOUT** - About the application, underlying data and the developer of this web app.
 
-These can be navigated to by using the App Navigation dropdown in the left sidebar. If you encounter loading issues, please refresh and try again (Note: Tested only on Firefox / Chrome).""",unsafe_allow_html=True)
+**These can be navigated to by using the App Navigation dropdown in the left sidebar.** If you encounter loading issues, please refresh and try again (Tested on Mozilla Firefox & Google Chrome). In case you would encounter severe issues with the web application, please contact the developer at QGoens@gmail.com for technical support.""",unsafe_allow_html=True)
 
     st.markdown("""**Note:** Note that the <t style="color:#149414"><b>green</b></t> and <t style="color:#FF0000"><b>red</b></t> colored metrics (see above) indicate <t style="color:#149414"><b>increases</b></t>  or <t style="color:#FF0000"><b>decreases</b></t> relative to same metric the previous year. These metrics are Europe wide.""",unsafe_allow_html=True)
     with st.expander('Acronyms and terminology'):

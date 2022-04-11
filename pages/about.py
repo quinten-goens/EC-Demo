@@ -19,11 +19,11 @@ def app():
 * Add automatic data fetching from the EUROCONTROL PRU website or implement an API for more granular data to provide daily up to date data. 
 * Add visualizations displaying the impact of the Ukraine crisis on European aviation to the general public dashboard (once data is available).
 * Add more visualizations based on provided feedback by the PRU.
-* Port the application to a more versatile and scalable cloud platform (e.g. [AWS](https://aws.amazon.com/), [Google Cloud](https://cloud.google.com/), [Azure](https://azure.microsoft.com/en-us/), etc.)
-* Create a more robust and flexible user interface by switching to a more function rich dashboarding platform such as e.g., [Dash Plotly](https://plotly.com/dash/) or [Panel](https://panel.holoviz.org/).""")
+* Deploy the containerized application to a more versatile and scalable cloud platform (e.g. [AWS](https://aws.amazon.com/), [Google Cloud](https://cloud.google.com/), [Azure](https://azure.microsoft.com/en-us/), etc.).
+* Create a more robust and flexible user interface by switching to a more function rich dashboarding platform such as e.g., [Dash](https://plotly.com/dash/) or [Panel](https://panel.holoviz.org/).""")
     st.markdown("""
     ### Software and hosting tools
-    Here's a (non-exhaustive) list of the tools used to develop and host this dashboard: """)
+    Here's a (non-exhaustive) list of the tools used to develop and host this web application: """)
 
     col1, col2,col2_ = st.columns((1,3,1))
     col1.image('resources/python.png', width=150)

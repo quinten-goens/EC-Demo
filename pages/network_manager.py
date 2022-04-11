@@ -43,12 +43,12 @@ def app():
     st.markdown("<h1 style='text-align: left; color: black;'>Network Manager Dashboard</h1>", unsafe_allow_html=True)
     col1, col2, col3, col4 = st.columns([4, 1, 1, 1])
     col1.markdown("""
-    Welcome to the Network Manager Dashboard. 
+    **Welcome to the Network Manager Dashboard.** 
     
-    The aim of this dashboard is to provide monitoring over time for the various countries and airport authorities for a network manager. For more information about the underlying data and the developer of this platform, please check out the ABOUT page.
+    The aim of this dashboard is to **provide monitoring over time for the various countries and airport authorities for a network manager.** For more information about the underlying data and the developer of this platform, please check out the ABOUT page.
     """)
     df = pd.read_feather('resources/ASMA_Additional_Time.feather')
-    col1.markdown("""The metrics on the right hand side are Europe wide. Note that the <t style="color:#149414"><b>green</b></t> and <t style="color:#FF0000"><b>red</b></t> colored metrics (see right) indicate <t style="color:#149414"><b>increases</b></t>  or <t style="color:#FF0000"><b>decreases</b></t> relative to same metric the previous year.""", unsafe_allow_html=True)
+    col1.markdown("""The metrics on the right hand side are Europe wide. Note that the <t style="color:#149414"><b>green</b></t> and <t style="color:#FF0000"><b>red</b></t> colored metrics indicate <t style="color:#149414"><b>increases</b></t>  or <t style="color:#FF0000"><b>decreases</b></t> relative to same metric the previous year.""", unsafe_allow_html=True)
     col1.markdown("""<b>Note: As a network manager you might be interested in using the raw data. You can download the raw data here:</b>""",unsafe_allow_html=True)
     df_xlsx = to_excel(df)
     col1.download_button(label='📥 Download Raw Data', data=df_xlsx, file_name= 'ASMA_Additional_Time.xlsx')
@@ -80,13 +80,13 @@ def app():
     col4.metric("Avg. addit. ASMA time 2020 (median)", millify(ASMA_ADD_2020,precision=2), delta=round(((ASMA_ADD_2020-ASMA_ADD_2019)/ASMA_ADD_2019)*100,2), delta_color="normal")
     col4.metric("Avg. addit. ASMA time 2021 (median)", millify(ASMA_ADD_2021,precision=2), delta=round(((ASMA_ADD_2021-ASMA_ADD_2020)/ASMA_ADD_2020)*100,2), delta_color="normal")
 
-    st.markdown("## Airport Performance Overview")
-    col5a,col6a = st.columns(2)
-    col5a.markdown("""Select a year of interest and the number of best / worst performers you want to have displayed.""")
+    st.markdown("## Airport performance overview")
+    st.markdown("""This section provides an **overview of the best and worst performers within the network w.r.t. ASMA time**. Select a year of interest and the number of best / worst performers you want to have displayed.""")
     col5b,col6b = st.columns(2)
     YEAR = col5b.selectbox("Year of interest", [2014,2015, 2016,2017,2018,2019,2020,2021])
     TOP = col6b.slider("Number of best / worst performers to display", min_value=1, max_value=47, value=10)
 
+    st.markdown('#### Unimpeded ASMA time')
     col5aa,col6aa = st.columns(2)
 
     @st.cache(allow_output_mutation=True)
@@ -114,7 +114,7 @@ def app():
         return fig
     
     col6aa.plotly_chart(get_worst_performers_avg_unimp(YEAR,TOP))
-
+    st.markdown('#### Additional ASMA time')
     col5aaa,col6aaa = st.columns(2)
 
     @st.cache(allow_output_mutation=True)

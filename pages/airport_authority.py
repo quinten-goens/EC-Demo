@@ -8,9 +8,9 @@ def app():
     st.markdown("<h1 style='text-align: left; color: black;'>Airport Authority Dashboard</h1>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     col1.markdown("""
-    Welcome to the Airport Authority dashboard. 
+    **Welcome to the Airport Authority dashboard.** 
     
-    The aim of this dashboard is to provide you some insight in to IFR flight statistics and relevant ASMA time (unimpeded and additional) for your relevant airport authority. Please select which Airport Authority you are working with (default: Brussels). 
+    The aim of this dashboard is to provide you some **insight in to IFR flight statistics and relevant ASMA time (unimpeded and additional) for your relevant airport authority.** Please select which Airport Authority you are working with (default: Brussels). 
     
     For more information about the underlying data and the developer of this platform, please check out the ABOUT page.
     """)
@@ -71,7 +71,7 @@ def app():
         The left graph shows yearly total IFR flights whereas the right one shows monthly totals for various years.
 
         ### Interpretation
-        Both graphs indicate for various airport authorities a significant decrease in flights in 2020, this is the effect of [Covid-19 and the lock-down restrictions](https://en.wikipedia.org/wiki/COVID-19). A specific note to be made for the airport authority Brussels, in 2016 a not insignificant dip in flights is noticable around March and April 2016. This likely correlates to the [2016 Brussels Bombings](https://en.wikipedia.org/wiki/2016_Brussels_bombings).  
+        Both graphs indicate for various airport authorities a significant decrease in flights in 2020, this is the effect of [Covid-19 and the lock-down restrictions](https://en.wikipedia.org/wiki/COVID-19). A specific note is to be made for the airport authority Brussels: In 2016 a significant dip in flights is noticable around March and April 2016. This likely is caused by the [2016 Brussels Bombings](https://en.wikipedia.org/wiki/2016_Brussels_bombings).  
         """)
 
     st.markdown('## Annual ASMA time flight statistics')
@@ -114,7 +114,7 @@ def app():
         
         The left graph shows average (unimpeded and additional) ASMA time per year whereas the right one shows the percentage change in a certain period for various years.
 
-        Note: Clicking the legend allows you to disable the corresponding graph and can enhance the visualization. 
+        *Note: Clicking the legend allows you to disable the corresponding graph and can enhance the visualization.* 
 
         ### Interpretation
         A large percentual increase of the avg. unimpeded ASMA time from 2019 to 2020 for various authorities indicates the potential impact of [Covid-19 and the lock-down restrictions](https://en.wikipedia.org/wiki/COVID-19).  
@@ -170,7 +170,7 @@ def app():
         
         The left graph shows average (unimpeded and additional) ASMA time per month for the selected year whereas the right one shows the percentage change in a certain period for various months for the selected year.
 
-        Note: Clicking the legend allows you to disable the corresponding graph and can enhance the visualization. 
+        *Note: Clicking the legend allows you to disable the corresponding graph and can enhance the visualization.* 
 
         ### Interpretation
         No specific interpretations to be made.  

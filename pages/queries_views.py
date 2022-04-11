@@ -9,14 +9,14 @@ def app():
 ### Question Two
 Given the ER diagram from Question 1:
 * **Part I: Write a query to extract the data as in the DATA sheet in the original dataset.**
-* **Part II: Define some example views to ease queries by an operational analysts and sketch them out.**""")
+* **Part II: Define some example views to ease queries by operational analysts and sketch them out.**""")
     
     st.markdown("""
 ### Part I: Recreate dataset through SQL Query
     """)
     col2,col1 = st.columns((2,3))
     col1.markdown("""
-**Tables with example row:**
+**Modelled DB Tables with an example row:**
 
 The various tables in the hypothetical database used are named `flight`, `asma_entry`, `airport` and `state`. Here we display a single row for each of these.
 
@@ -101,10 +101,10 @@ After renaming columns we get:
     st.markdown("""
 ### Part II: Define views
 
-Various views can be defined by grouping and aggregating the data in a variety of ways. There are spatial groupings possible (by airport, state or Europe wide) and temporal groupings (by day, month or year). \
+Various views can be defined by grouping and aggregating the data in a variety of ways. There are **spatial groupings** possible (by airport, state or Europe wide) and **temporal groupings** (by day, month or year). \
     Below we first apply the temporal groupings by year and month and show the different queries for the different spacial groupings. We follow up with the same views but grouped by year only (less temporal granularity). 
     
-In order to aid the operational analysts we added two columns to the table indicating the average unimpeded ASMA time `AVG_ASMA_UNIMP_2` and the average additional ASMA time `AVG_ASMA_ADD_2`.      
+In order to aid the operational analysts **we added two columns** to the table indicating **the average unimpeded ASMA time** `AVG_ASMA_UNIMP_2` and **the average additional ASMA time** `AVG_ASMA_ADD_2`.      
     
 *Note: Temporarily collapsing the web app sidebar allows you to read the queries more easily.*
     """)
@@ -376,7 +376,7 @@ To create a view, you can wrap the above queries using the `CREATE VIEW` stateme
     st.markdown("""<br></br>
 #### Additional ideas
 * Add a temporal grouping by day to the above. 
-* Create views for specific years (e.g. group by month on state or airport where year = 2021)
+* Create views for specific years (e.g. group by month on state or airport where year = 2021).
 * Create views with metrics for specific requested airports or states.
 * ...  
 """,unsafe_allow_html=True)
