@@ -28,9 +28,9 @@ The various tables in the hypothetical database used are named `flight`, `asma_e
 
 <br/><br/>
 **airport AS a**
-| id | name     | icoa | asma_radius | pru_asma_monitoring | state_id |
-|----|----------|------|-------------|---------------------|----------|
-| 1  | Brussels | EBBR | 40          | TRUE                | 1        |
+| id | name     | icoa | asma_radius | pru_asma_monitoring | unimpeded_asma_time | state_id |
+|----|----------|------|-------------|---------------------|----------|----------|
+| 1  | Brussels | EBBR | 40          | TRUE                | 12.1        | 1 |
 
 <br/><br/>
 **state AS s**
@@ -40,9 +40,9 @@ The various tables in the hypothetical database used are named `flight`, `asma_e
 
 <br/><br/>
 **asma_entry AS ae**
-| id | asma_entry_time | unimpeded_asma_time | additional_asma_time |
-|----|-----------------|-----------------------|---------------------|
-| 1  | 12:08:46 | 12.1 | 0.5                   |
+| id | asma_entry_time | additional_asma_time |
+|----|-----------------|---------------------|
+| 1  | 12:08:46 | 0.5                   |
 
     """,unsafe_allow_html=True)
     query = """
@@ -55,7 +55,7 @@ SELECT
   s.name, 
   a.asma_radius, 
   COUNT(f.id), 
-  SUM(ae.unimpeded_asma_time), 
+  SUM(a.unimpeded_asma_time), 
   SUM(ae.additional_asma_time)
 FROM 
   (SELECT 
@@ -122,9 +122,9 @@ SELECT
   s.name, 
   a.asma_radius, 
   COUNT(f.id), 
-  SUM(ae.unimpeded_asma_time), 
+  SUM(a.unimpeded_asma_time), 
   SUM(ae.additional_asma_time),
-  SUM(ae.unimpeded_asma_time)/COUNT(f.id),
+  SUM(a.unimpeded_asma_time)/COUNT(f.id),
   SUM(ae.additional_asma_time)/COUNT(f.id)
 FROM 
   (SELECT 
@@ -162,9 +162,9 @@ SELECT
   f.arrival_month, 
   s.name, 
   COUNT(f.id), 
-  SUM(ae.unimpeded_asma_time), 
+  SUM(a.unimpeded_asma_time), 
   SUM(ae.additional_asma_time),
-  SUM(ae.unimpeded_asma_time)/COUNT(f.id),
+  SUM(a.unimpeded_asma_time)/COUNT(f.id),
   SUM(ae.additional_asma_time)/COUNT(f.id)
 FROM 
   (SELECT 
@@ -197,9 +197,9 @@ SELECT
   f.arrival_month_char, 
   f.arrival_month, 
   COUNT(f.id), 
-  SUM(ae.unimpeded_asma_time), 
+  SUM(a.unimpeded_asma_time), 
   SUM(ae.additional_asma_time),
-  SUM(ae.unimpeded_asma_time)/COUNT(f.id),
+  SUM(a.unimpeded_asma_time)/COUNT(f.id),
   SUM(ae.additional_asma_time)/COUNT(f.id)
 FROM 
   (SELECT 
@@ -263,9 +263,9 @@ SELECT
   s.name, 
   a.asma_radius, 
   COUNT(f.id), 
-  SUM(ae.unimpeded_asma_time), 
+  SUM(a.unimpeded_asma_time), 
   SUM(ae.additional_asma_time),
-  SUM(ae.unimpeded_asma_time)/COUNT(f.id),
+  SUM(a.unimpeded_asma_time)/COUNT(f.id),
   SUM(ae.additional_asma_time)/COUNT(f.id)
 FROM 
   (SELECT 
@@ -295,9 +295,9 @@ SELECT
   f.arrival_year, 
   s.name, 
   COUNT(f.id), 
-  SUM(ae.unimpeded_asma_time), 
+  SUM(a.unimpeded_asma_time), 
   SUM(ae.additional_asma_time),
-  SUM(ae.unimpeded_asma_time)/COUNT(f.id),
+  SUM(a.unimpeded_asma_time)/COUNT(f.id),
   SUM(ae.additional_asma_time)/COUNT(f.id)
 FROM 
   (SELECT 
@@ -322,9 +322,9 @@ ORDER BY
 SELECT 
   f.arrival_year, 
   COUNT(f.id), 
-  SUM(ae.unimpeded_asma_time), 
+  SUM(a.unimpeded_asma_time), 
   SUM(ae.additional_asma_time),
-  SUM(ae.unimpeded_asma_time)/COUNT(f.id),
+  SUM(a.unimpeded_asma_time)/COUNT(f.id),
   SUM(ae.additional_asma_time)/COUNT(f.id)
 FROM 
   (SELECT 

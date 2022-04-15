@@ -54,3 +54,9 @@ On this page you can view some general metrics for the whole of Europe, however,
     with st.expander('Acronyms and terminology'):
         st.markdown("""A list of acronyms and terminology used in this application can be found below. Source: [EUROCONTROL (PRU)](https://ansperformance.eu/methodology/additional-asma-time-pi/).""",unsafe_allow_html=True)
         st.table(pd.read_feather('resources/acronyms.feather'))
+    st.info("""
+    #### Updates
+    **15 April 2022**
+    * Updated ER-Diagram based on feedback EC. The unimpeded asma time is an attribute of the airport.
+    * Added disclaimer for the PRU monitoring attribute.  
+    """)
