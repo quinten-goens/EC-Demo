@@ -35,7 +35,7 @@ In this section an overview of the explicit data modelling requirements is speci
     * An ASMA radius
     * An ASMA PRU monitoring flag (boolean) 
         * Note: If the ASMA time is being monitored for this specific airport by the Performance Review Unit (PRU) then the boolean will be set to `True`. If not then the boolean will be set to `False`.  
-        * **Disclaimer:** This solution is for demonstration purposes only as this is a simplification of the actual situation. There are periods in which an airport is to be observed by the PRU and these period should be captured. The database should thus capture time periods in which the respective airport is observed. The current solution relies on someone actively updating the database when a specific airport is observed or not observed.
+        * **Disclaimer:** This solution is for demonstration purposes only as this is a simplification of the actual situation. The database ideally captures time periods in which the respective airport is observed by the PRU. The current solution relies on someone actively updating the database when a specific airport is observed or not observed.
 * The airports are located in a **state** (i.e., a country). A **state** has the following properties:
     * A unique numeric identifier (for reference)
     * A state name""")
