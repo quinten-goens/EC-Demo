@@ -1,4 +1,4 @@
-# Streamlit Dashboard
+# EC Demo Dashboard
 
 Use [docker-compose](https://www.docker.com/) to build and run the dashboard from the root directory of the repository.
 
