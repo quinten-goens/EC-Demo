@@ -18,7 +18,7 @@ Given the ER diagram from Question 1:
     col1.markdown("""
 **Modelled DB Tables with an example row:**
 
-The various tables in the hypothetical database used are named `flight`, `asma_entry`, `airport` and `state`. Here we display a single row for each of these.
+The various tables in the hypothetical database used are named `flight`, `asma_entry`, `airport`, `monitoring_period`, `airport_monitoring_period` and `state`. Here we display a single row for each of these.
 
 **flight AS f**
 
@@ -31,6 +31,21 @@ The various tables in the hypothetical database used are named `flight`, `asma_e
 | id | name     | icoa | asma_radius | pru_asma_monitoring | unimpeded_asma_time | state_id |
 |----|----------|------|-------------|---------------------|----------|----------|
 | 1  | Brussels | EBBR | 40          | TRUE                | 12.1        | 1 |
+
+<br/><br/>
+**monitoring_period AS mp**
+| id | start_date | end_date |
+|----|------------|---------|
+| 1  | 2020-01-01 | 2022-12-31 |
+
+<br/><br/>
+**airport_monitoring_period AS amp**
+
+I.e. the junction table for the many-to-many relationship between the airport and PRU monitoring period tables.
+
+| id | airport_id | monitoring_period_id |
+|----|------------|----------------------|
+| 1  | 1          | 1                    |
 
 <br/><br/>
 **state AS s**
@@ -66,9 +81,11 @@ FROM
   FROM flight) AS f 
   JOIN asma_entry AS ae ON f.asma_entry_id = ae.id 
   JOIN airport AS a ON f.arrival_airport_id = a.id 
+  JOIN airport_monitoring_period AS amp on a.id = amp.airport_id
+  JOIN monitoring_period AS mp on amp.monitoring_period_id = mp.id
   JOIN state AS s ON a.state_id = s.id 
 WHERE 
-  a.pru_asma_monitoring = TRUE 
+  (mp.start_date <= CURRENT_DATE AND mp.end_date >= CURRENT_DATE) 
 GROUP BY
   f.arrival_year, 
   f.arrival_month_char, 
@@ -135,9 +152,11 @@ FROM
   FROM flight) AS f 
   JOIN asma_entry AS ae ON f.asma_entry_id = ae.id 
   JOIN airport AS a ON f.arrival_airport_id = a.id 
+  JOIN airport_monitoring_period AS amp on a.id = amp.airport_id
+  JOIN monitoring_period AS mp on amp.monitoring_period_id = mp.id
   JOIN state AS s ON a.state_id = s.id 
 WHERE 
-  a.pru_asma_monitoring = TRUE 
+  (mp.start_date <= CURRENT_DATE AND mp.end_date >= CURRENT_DATE) 
 GROUP BY
   f.arrival_year, 
   f.arrival_month_char, 
@@ -175,9 +194,11 @@ FROM
   FROM flight) AS f 
   JOIN asma_entry AS ae ON f.asma_entry_id = ae.id 
   JOIN airport AS a ON f.arrival_airport_id = a.id 
+  JOIN airport_monitoring_period AS amp on a.id = amp.airport_id
+  JOIN monitoring_period AS mp on amp.monitoring_period_id = mp.id
   JOIN state AS s ON a.state_id = s.id 
 WHERE 
-  a.pru_asma_monitoring = TRUE 
+  (mp.start_date <= CURRENT_DATE AND mp.end_date >= CURRENT_DATE) 
 GROUP BY
   f.arrival_year, 
   f.arrival_month_char, 
@@ -210,8 +231,10 @@ FROM
   FROM flight) AS f 
   JOIN asma_entry AS ae ON f.asma_entry_id = ae.id 
   JOIN airport AS a ON f.arrival_airport_id = a.id 
+  JOIN airport_monitoring_period AS amp on a.id = amp.airport_id
+  JOIN monitoring_period AS mp on amp.monitoring_period_id = mp.id
 WHERE 
-  a.pru_asma_monitoring = TRUE 
+  (mp.start_date <= CURRENT_DATE AND mp.end_date >= CURRENT_DATE) 
 GROUP BY
   f.arrival_year, 
   f.arrival_month_char, 
@@ -274,9 +297,11 @@ FROM
   FROM flight) AS f 
   JOIN asma_entry AS ae ON f.asma_entry_id = ae.id 
   JOIN airport AS a ON f.arrival_airport_id = a.id 
+  JOIN airport_monitoring_period AS amp on a.id = amp.airport_id
+  JOIN monitoring_period AS mp on amp.monitoring_period_id = mp.id
   JOIN state AS s ON a.state_id = s.id 
 WHERE 
-  a.pru_asma_monitoring = TRUE 
+  (mp.start_date <= CURRENT_DATE AND mp.end_date >= CURRENT_DATE)  
 GROUP BY
   f.arrival_year, 
   a.icao, 
@@ -306,9 +331,11 @@ FROM
   FROM flight) AS f 
   JOIN asma_entry AS ae ON f.asma_entry_id = ae.id 
   JOIN airport AS a ON f.arrival_airport_id = a.id 
+  JOIN airport_monitoring_period AS amp on a.id = amp.airport_id
+  JOIN monitoring_period AS mp on amp.monitoring_period_id = mp.id
   JOIN state AS s ON a.state_id = s.id 
 WHERE 
-  a.pru_asma_monitoring = TRUE 
+  (mp.start_date <= CURRENT_DATE AND mp.end_date >= CURRENT_DATE)  
 GROUP BY
   f.arrival_year, 
   s.name
@@ -333,8 +360,10 @@ FROM
   FROM flight) AS f 
   JOIN asma_entry AS ae ON f.asma_entry_id = ae.id 
   JOIN airport AS a ON f.arrival_airport_id = a.id 
+  JOIN airport_monitoring_period AS amp on a.id = amp.airport_id
+  JOIN monitoring_period AS mp on amp.monitoring_period_id = mp.id
 WHERE 
-  a.pru_asma_monitoring = TRUE 
+  (mp.start_date <= CURRENT_DATE AND mp.end_date >= CURRENT_DATE) 
 GROUP BY
   f.arrival_year 
 ORDER BY 
