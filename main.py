@@ -38,6 +38,9 @@ This web application is a demo of a European Aviation Analytics dashboard design
 
 For information about the application and its' future releases and improvements see the ABOUT page. 
 """)
+
+st.sidebar.markdown("""
+<sub><sup>Version: 0.0.3 (Last updated: 18 April 2022)</sup></sub>""", unsafe_allow_html=True)
 #def to_excel():
 #    df = pd.read_feather('resources/ASMA_Additional_Time.feather')
 #    output = BytesIO()
