@@ -33,9 +33,10 @@ In this section an overview of the explicit data modelling requirements is speci
     * An airport ICAO code
     * Unimpeded ASMA time
     * An ASMA radius
-    * An ASMA PRU monitoring flag (boolean) 
-        * Note: If the ASMA time is being monitored for this specific airport by the Performance Review Unit (PRU) then the boolean will be set to `True`. If not then the boolean will be set to `False`.  
-        * **Disclaimer:** This solution is for demonstration purposes only as this is a simplification of the actual situation. The database ideally captures time periods in which the respective airport is observed by the PRU. The current solution relies on someone actively updating the database when a specific airport is observed or not observed.
+* Each airport has a PRU monitoring period [NEW in the lastest version of the ER Diagram (18 April 2022)]. The PRU monitoring period is defined by: 
+    * A unique numeric identifier (for reference)
+    * A start date
+    * An end date
 * The airports are located in a **state** (i.e., a country). A **state** has the following properties:
     * A unique numeric identifier (for reference)
     * A state name""")
@@ -43,14 +44,16 @@ In this section an overview of the explicit data modelling requirements is speci
     
     st.markdown("""
 ### Entity-relationship diagram
-The following entity-relationship (ER) diagram represents the underlying data tables assuming that you have information on a per flight basis.
-    """)
-    st.image('resources/ER-Diagramdrawio.png',caption='Entity Relationship Diagram',use_column_width=False)
+The following entity-relationship (ER) diagram represents the underlying data tables assuming that you have information on a per flight basis. 
+
+**This diagram is an updated version which incorporated the feedback of the Performance Review Unit (PRU).** The originally submitted ER diagram can be shown by clicking the expander element below the image.""")
+    st.image('resources/ER-Diagramdrawio-revisited.png',caption='Revisited Entity Relationship Diagram after feedback PRU',use_column_width=False)
+    with st.expander("View the originally submitted ER diagram here"):
+        st.image('resources/ER-Diagramdrawio.png',caption='Entity Relationship Diagram',use_column_width=False)
     st.markdown("""
 ### Design choice motivations
 **Four entities are defined** (`IFR Flight`, `Airport`, `ASMA Entry`, `State`) as they represent the underlying core concepts. The attributes are allocated to the entities based on the data modelling requirements. Note that `State` (more specifically the name of the state) could have been an attribute of `Airport`. However, it is more correct to add it as a seperate entity as one wants to normalize the data according to the normal forms when proceeding with data modelling.
 """)
-
     with st.expander("About normal forms"):
         st.markdown("""
 To normalize the data, the following normal forms are achieved:

@@ -59,4 +59,6 @@ On this page you can view some general metrics for the whole of Europe, however,
     **15 April 2022**
     * Updated ER-Diagram, queries and views based on feedback PRU (i.e., the unimpeded ASMA time is an attribute of the airport).
     * Added disclaimer for the PRU ASMA monitoring attribute. To be done: Add additional table(s) to accomodate the more complex real life situation.  
+    **16 April 2022**
+    * Added additional revisited ER diagram based on feedback PRU.
     """)
