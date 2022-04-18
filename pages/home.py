@@ -57,7 +57,7 @@ On this page you can view some general metrics for the whole of Europe, however,
 
     st.info("""
     #### Updates
-    This application has been updated based on the received feedback since the submission to EC on 11 April 2022. To view the web application as was submitted to EUROCONTROL, please go to: https://share.streamlit.io/quinten-goens/ec-demo/main/main.py. 
+    This application has been updated based on the received feedback since the submission to EC on 11 April 2022. To view the web application as it was submitted to EUROCONTROL, please go to: https://share.streamlit.io/quinten-goens/ec-demo/main/main.py. 
     
     **16 April 2022**
     * Updated ER diagram based on feedback PRU (i.e., related to the PRU monitoring attribute). The PRU monitoring boolean has been changed in an entity (this invokes the inclusion of a junction table as it is a many-to-many relation). Note: The queries have not yet been adapted according to this new ER diagram.
