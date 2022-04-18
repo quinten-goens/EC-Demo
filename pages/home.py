@@ -62,7 +62,7 @@ On this page you can view some general metrics for the whole of Europe, however,
     The changes listed below are not applied in the currently viewed version of the web application in order to keep the submitted version unchanged.
     
     **16 April 2022**
-    * Updated ER diagram based on feedback PRU (i.e., related to the PRU monitoring attribute). The PRU monitoring boolean has been changed in an entity (this invokes the inclusion of a junction table as it is a many-to-many relation). Note: The queries have not yet been adapted according to this new ER diagram.
-    **15 April 2022**
-    * Updated ER-Diagram, queries and views based on feedback PRU (i.e., related to the unimpeded ASMA time which is an attribute of the airport and not the ASMA entry).
+    * Updated ER diagram, queries and views based on feedback from EUROCONTROL and the PRU: 
+        * Changes have been made to the PRU monitoring attribute. The PRU monitoring attribute has been changed into an entity. This invokes the inclusion of a junction table as it has a many-to-many relation with the airport entity. 
+        * Changes have been made to the unimpeded ASMA time attribute. This is an attribute of the airport and not the ASMA entry.
     """)
