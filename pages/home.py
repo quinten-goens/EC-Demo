@@ -59,7 +59,7 @@ On this page you can view some general metrics for the whole of Europe, however,
     #### Updates
     This application has been updated by the developer based on the received feedback since the submission to EUROCONTROL on 11 April 2022. **To view the updated version of the web application, please click the following URL: https://share.streamlit.io/quinten-goens/ec-demo/updated_version/main.py.** 
     
-    The changes listed below are not applied in the currently viewed version of the web application in order to keep the submitted version unchanged.
+    **The changes listed below are not applied in the currently viewed version of the web application in order to keep the submitted version unchanged.**
     
     **16 April 2022**
     * Updated ER diagram, queries and views based on feedback from EUROCONTROL and the PRU: 
