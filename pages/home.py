@@ -56,9 +56,10 @@ On this page you can view some general metrics for the whole of Europe, however,
         st.table(pd.read_feather('resources/acronyms.feather'))
     st.info("""
     #### Updates
-    **15 April 2022**
-    * Updated ER-Diagram, queries and views based on feedback PRU (i.e., the unimpeded ASMA time is an attribute of the airport).
-    * Added disclaimer for the PRU ASMA monitoring attribute. To be done: Add additional table(s) to accomodate the more complex real life situation.  
+    This application has been updated based on the received feedback since the submission to EC on 11 April 2022. To view the original web application as submitted, please go to: https://share.streamlit.io/quinten-goens/ec-demo/original_web_app/main.py. This version is created by checking out the last commit before submission and creating a branch `original_web_app` to which the CI/CD is linked. 
+    
     **16 April 2022**
-    * Added additional revisited ER diagram based on feedback PRU.
+    * Updated ER diagram based on feedback PRU (i.e., related to the PRU monitoring attribute). The PRU monitoring boolean has been changed in an entity (this invokes the inclusion of a junction table as it is a many-to-many relation). Note: The queries have not yet been adapted according to this new ER diagram.
+    **15 April 2022**
+    * Updated ER-Diagram, queries and views based on feedback PRU (i.e., related to the unimpeded ASMA time which is an attribute of the airport and not the ASMA entry).
     """)

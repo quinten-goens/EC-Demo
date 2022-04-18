@@ -33,7 +33,7 @@ In this section an overview of the explicit data modelling requirements is speci
     * An airport ICAO code
     * Unimpeded ASMA time
     * An ASMA radius
-* Each airport has a PRU monitoring period [NEW in the lastest version of the ER Diagram (18 April 2022)]. The PRU monitoring period is defined by: 
+* Each airport has a PRU monitoring period [NEW in the lastest version of the ER Diagram, updated on 18 April 2022]. The PRU monitoring period is defined by: 
     * A unique numeric identifier (for reference)
     * A start date
     * An end date
@@ -93,6 +93,11 @@ In our example, the state is not directly related to the primary key of the airp
         * Each airport can be located in only one state but each state can have multiple airports.
     * Participation: Full participation on airport side, partial participation on state side.
         * Each airport must have a state but not each state must have an airport.
+* **Airport - PRU ASMA Monitoring Period: `Has`**
+    * Cardinality: N:M
+        * Each airport can have many monitoring periods and each monitoring period can apply to many airports.
+    * Participation: Full participation on both sides.
+        * Each airport must have a monitoring period and each monitoring period must be linked to an airport.
 
 ### Additional comments:
 * If it is so that the attribute `airport_icoa` is fully unique for each airport in Europe then this can be used as the primary key for the `Airport` entity.
