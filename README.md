@@ -1,3 +1,5 @@
+[![Docker Image CI](https://github.com/quinten-goens/EC-Demo/actions/workflows/docker-image.yml/badge.svg)](https://github.com/quinten-goens/EC-Demo/actions/workflows/docker-image.yml)
+[![Dependency Review](https://github.com/quinten-goens/EC-Demo/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/quinten-goens/EC-Demo/actions/workflows/dependency-review.yml)
 # EC Demo Dashboard
 
 Use [docker-compose](https://www.docker.com/) to build and run the dashboard from the root directory of the repository.
