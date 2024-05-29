@@ -280,12 +280,12 @@ def app():
         end_period = datetime(2022,1,1)
 
         # If 'DATE' is not datetime, convert it
-        if df_tmp['DATE'].dtype == 'object':
-            df_tmp['DATE'] = pd.to_datetime(df_tmp['DATE'], errors='coerce')  # 'coerce' will set invalid parsing as NaT
+        if df['DATE'].dtype == 'object':
+            df['DATE'] = pd.to_datetime(df['DATE'], errors='coerce')  # 'coerce' will set invalid parsing as NaT
         
         # Ensure 'AVG_UNIMPEDED_ASMA_TIME' is numeric
-        if df_tmp['AVG_UNIMPEDED_ASMA_TIME'].dtype == 'object':
-            df_tmp['AVG_UNIMPEDED_ASMA_TIME'] = pd.to_numeric(df_tmp['AVG_UNIMPEDED_ASMA_TIME'], errors='coerce')  # 'coerce' will set errors to NaN
+        if df['AVG_UNIMPEDED_ASMA_TIME'].dtype == 'object':
+            df['AVG_UNIMPEDED_ASMA_TIME'] = pd.to_numeric(df['AVG_UNIMPEDED_ASMA_TIME'], errors='coerce')  # 'coerce' will set errors to NaN
 
         
         df_tmp = df.groupby(['DATE']).mean()['AVG_UNIMPEDED_ASMA_TIME'].reset_index()
@@ -316,12 +316,12 @@ def app():
         end_period = datetime(2022,1,1)
 
         # If 'DATE' is not datetime, convert it
-        if df_tmp['DATE'].dtype == 'object':
-            df_tmp['DATE'] = pd.to_datetime(df_tmp['DATE'], errors='coerce')  # 'coerce' will set invalid parsing as NaT
+        if df['DATE'].dtype == 'object':
+            df['DATE'] = pd.to_datetime(df['DATE'], errors='coerce')  # 'coerce' will set invalid parsing as NaT
         
         # Ensure 'AVG_UNIMPEDED_ASMA_TIME' is numeric
-        if df_tmp['AVG_UNIMPEDED_ASMA_TIME'].dtype == 'object':
-            df_tmp['AVG_UNIMPEDED_ASMA_TIME'] = pd.to_numeric(df_tmp['AVG_UNIMPEDED_ASMA_TIME'], errors='coerce')  # 'coerce' will set errors to NaN
+        if df['AVG_UNIMPEDED_ASMA_TIME'].dtype == 'object':
+            df['AVG_UNIMPEDED_ASMA_TIME'] = pd.to_numeric(df['AVG_UNIMPEDED_ASMA_TIME'], errors='coerce')  # 'coerce' will set errors to NaN
         
             
         df_tmp = df.groupby(['DATE']).mean()['AVG_ADDITIONAL_ASMA_TIME'].reset_index()
@@ -366,6 +366,8 @@ def app():
         start_period = datetime(2017,1,1)
         end_period = datetime(2022,1,1)
 
+        df_tmp = df[df['STATE_NAME'].isin(flight_destinations)]
+        
         # If 'DATE' is not datetime, convert it
         if df_tmp['DATE'].dtype == 'object':
             df_tmp['DATE'] = pd.to_datetime(df_tmp['DATE'], errors='coerce')  # 'coerce' will set invalid parsing as NaT
@@ -374,7 +376,7 @@ def app():
         if df_tmp['AVG_UNIMPEDED_ASMA_TIME'].dtype == 'object':
             df_tmp['AVG_UNIMPEDED_ASMA_TIME'] = pd.to_numeric(df_tmp['AVG_UNIMPEDED_ASMA_TIME'], errors='coerce')  # 'coerce' will set errors to NaN
         
-        df_tmp = df[df['STATE_NAME'].isin(flight_destinations)]
+        
 
         df_tmp = df_tmp.groupby(['DATE', 'STATE_NAME']).mean()['AVG_UNIMPEDED_ASMA_TIME'].reset_index()
 
@@ -402,6 +404,8 @@ def app():
     def make_fig6(flight_destinations):
         start_period = datetime(2017,1,1)
         end_period = datetime(2022,1,1)
+        df_tmp = df[df['STATE_NAME'].isin(flight_destinations)]
+        
         # If 'DATE' is not datetime, convert it
         if df_tmp['DATE'].dtype == 'object':
             df_tmp['DATE'] = pd.to_datetime(df_tmp['DATE'], errors='coerce')  # 'coerce' will set invalid parsing as NaT
@@ -410,7 +414,7 @@ def app():
         if df_tmp['AVG_UNIMPEDED_ASMA_TIME'].dtype == 'object':
             df_tmp['AVG_UNIMPEDED_ASMA_TIME'] = pd.to_numeric(df_tmp['AVG_UNIMPEDED_ASMA_TIME'], errors='coerce')  # 'coerce' will set errors to NaN
         
-        df_tmp = df[df['STATE_NAME'].isin(flight_destinations)]
+        
 
         df_tmp = df_tmp.groupby(['DATE', 'STATE_NAME']).mean()['AVG_ADDITIONAL_ASMA_TIME'].reset_index()
 
