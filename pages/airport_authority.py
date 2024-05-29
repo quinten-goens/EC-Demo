@@ -44,6 +44,7 @@ def app():
     @st.cache(allow_output_mutation=True)
     def make_fig1(APT_NAME):
         df_tmp = df[df['APT_NAME'] == APT_NAME]
+        df_tmp['FLT_ASMA_UNIMP_2'] = df_tmp['FLT_ASMA_UNIMP_2'].astype(float)
         df_tmp = df_tmp.groupby('YEAR').sum()['FLT_ASMA_UNIMP_2'].reset_index()
 
         df_tmp = change_column_names(df_tmp)
